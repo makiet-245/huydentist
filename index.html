@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>Chương trình khai trương - Nha khoa Huy Dentist</title>
-    <link rel="icon" type="image/png" href="./image/logo.png">
+    <link rel="icon" type="image/png" href="./image/logo_1.png">
     <style>
         * {
             margin: 0;
@@ -20,7 +20,7 @@
         }
 
         .container {
-            max-width: 1300px;
+            max-width:1200px;
             margin: 0 auto;
         }
 
@@ -51,7 +51,7 @@
         /* Grid 3 cột */
         .programs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 24px;
             margin-bottom: 48px;
         }
@@ -334,6 +334,13 @@
         }
 
         @media (max-width: 768px) {
+            /* Grid 3 cột */
+            .programs-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 24px;
+                margin-bottom: 48px;
+            }
             .form-row {
                 grid-template-columns: 1fr;
                 gap: 12px;
@@ -373,7 +380,7 @@
                 <div class="info-row"><span class="info-label">📅 Số lượng/ngày</span><span class="info-value">Giới hạn 10 khách/ngày</span></div>
                 <div class="info-row"><span class="info-label">👥 Tổng số lượng</span><span class="info-value">30 khách / 3 ngày</span></div>
                 <div class="info-row"><span class="info-label">⏰ Thời gian</span><span class="info-value">3 ngày khai trương</span></div>
-                <div class="info-row"><span class="info-label">📝 Đăng ký</span><span class="info-value">Form hoặc xếp hàng trước</span></div>
+                <div class="info-row"><span class="info-label">📝 Đăng ký</span><span class="info-value">Form hoặc check in trực tiếp</span></div>
                 <div class="highlight">🎁 Quá tải: Tặng gấu bông + Phiếu ưu tiên<br>Hoặc Voucher 50% răng sứ thẩm mỹ</div>
                 <div class="condition-list">
                     <p>Đặt lịch qua form hoặc đến xếp hàng trước</p>
@@ -385,7 +392,7 @@
         <!-- CT 2: TRÁM RĂNG MIỄN PHÍ -->
         <div class="program-card">
             <div class="card-header">
-                <h2>🦷 TRÁM RĂNG<br><span style="font-size:1rem;">MIỄN PHÍ</span></h2>
+                <h2>🦷 TRÁM RĂNG 🦷<br><span style="font-size:1rem;">MIỄN PHÍ</span></h2>
                 <div class="price">0đ / 1 răng</div>
             </div>
             <div class="card-body">
@@ -393,7 +400,7 @@
                 <div class="info-row"><span class="info-label">👥 Tổng số</span><span class="info-value">30 suất / 3 ngày</span></div>
                 <div class="info-row"><span class="info-label">✅ Điều kiện</span><span class="info-value">1 khách/1 răng</span></div>
                 <div class="info-row"><span class="info-label">🎁 Ưu đãi thêm</span><span class="info-value">Voucher 30% cho răng tiếp theo</span></div>
-                <div class="highlight">📱 Đăng ký qua QR hoặc check in tại cửa hàng</div>
+                <div class="highlight">📱 Form hoặc check in trực tiếp</div>
                 <div class="condition-list">
                     <p>Đặt lịch theo thứ tự đăng ký</p>
                     <p>Mục tiêu: Thu hút khách hàng mới</p>
@@ -411,13 +418,33 @@
             <div class="card-body">
                 <div class="info-row"><span class="info-label">📅 Số lượng/ngày</span><span class="info-value">3 suất/ngày</span></div>
                 <div class="info-row"><span class="info-label">👥 Tổng số</span><span class="info-value">9 suất / 3 ngày</span></div>
-                <div class="info-row"><span class="info-label">🎯 Điều kiện</span><span class="info-value">Đăng ký form hoặc xếp hàng</span></div>
+                <div class="info-row"><span class="info-label">🎯 Điều kiện</span><span class="info-value">Form hoặc check in trực tiếp</span></div>
                 <div class="highlight">📹 Cam kết truyền thông: Quay video trải nghiệm / Reel TikTok / Phỏng vấn</div>
                 <div class="condition-list">
                     <p>✅ Đồng ý quay video feedback</p>
                     <p>✅ Quay 01 Reel/TikTok</p>
                     <p>✅ Phỏng vấn nhanh sau điều trị</p>
                     <p>🎁 Tặng voucher 10% cho các dịch vụ khác</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CT 4: LÀM TRẮNG RĂNG GIÁ 99K -->
+        <div class="program-card">
+            <div class="card-header">
+                <h2>🦷 TẶNG 1 RĂNG SỨ 🦷<br><span style="font-size:1rem;">MIỄN PHÍ</span></h2>
+                <div class="price">0đ</div>
+            </div>
+            <div class="card-body">
+                <div class="info-row"><span class="info-label">📅 Số lượng/ngày</span><span class="info-value">3 suất/ngày</span></div>
+                <div class="info-row"><span class="info-label">👥 Tổng số</span><span class="info-value">9 suất / 3 ngày</span></div>
+                <div class="info-row"><span class="info-label">🎯 Điều kiện</span><span class="info-value">Giới hạn 03 suất mỗi ngày  </span></div>
+                <div class="highlight">📹 Khách hàng thực hiện check-in hoặc đánh giá Google Maps để hoàn tất điều kiện nhận ưu đãi</div>
+                <div class="condition-list">
+                    <p>✅ Mỗi khách hàng chỉ được áp dụng tối đa 01 răng sứ miễn phí</p>
+                    <p>✅ Áp dụng trong thời gian diễn ra 03 ngày khai trương</p>
+                    <p>✅ Phỏng vấn nhanh sau điều trị</p>
+                    <p>🎁 Không áp dụng đồng thời với các chương trình ưu đãi khác </p>
                 </div>
             </div>
         </div>
@@ -451,8 +478,9 @@
         <h3>📋 Chọn chương trình bạn muốn đăng ký</h3>
         <div class="modal-buttons">
             <button class="modal-btn modal-btn-primary" data-program-value="LÀM SẠCH RĂNG MIỄN PHÍ">✨ Làm sạch răng miễn phí</button>
-            <button class="modal-btn modal-btn-primary" data-program-value="TRÁM RĂNG MIỄN PHÍ">🦷 Trám răng miễn phí</button>
+            <button class="modal-btn modal-btn-primary" data-program-value="TRÁM RĂNG MIỄN PHÍ">🦷 Trám răng miễn phí 🦷</button>
             <button class="modal-btn modal-btn-primary" data-program-value="LÀM TRẮNG RĂNG GIÁ 99K">🌟 Làm trắng răng giá 99K</button>
+            <button class="modal-btn modal-btn-primary" data-program-value="TẶNG 1 RĂNG SỨ">🦷 Tặng 1 răng sứ 🦷</button>
             <button class="modal-btn modal-btn-secondary" id="closeModal">❌ Đóng</button>
         </div>
     </div>
