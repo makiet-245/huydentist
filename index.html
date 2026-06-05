@@ -2,8 +2,8 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Chương trình khai trương - Nha khoa Huy Dentist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>NHA KHOA HUY DENTIST</title>
     <link rel="icon" type="image/png" href="./image/logo.png">
     <style>
         * {
@@ -13,467 +13,198 @@
         }
 
         body {
-            background: linear-gradient(135deg, #e8f4f8 0%, #d4eaf1 100%);
-            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-            padding: 20px 16px 48px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #060154 100%);
             min-height: 100vh;
-        }
-
-        .container {
-            max-width:1200px;
-            margin: 0 auto;
-        }
-
-        /* Header */
-        .header {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .header h1 {
-            font-size: 1.8rem;
-            color: #1a6b8f;
-            margin-bottom: 8px;
-        }
-
-        .header .slogan {
-            background: linear-gradient(112deg, #2c9bc8 0%, #4fb3d9 100%);
-            padding: 16px 20px;
-            border-radius: 50px;
-            color: white;
-            font-weight: 600;
-            font-size: 1rem;
-            display: inline-block;
-            max-width: 90%;
-            box-shadow: 0 4px 12px rgba(44, 155, 200, 0.3);
-        }
-
-        /* Grid 3 cột */
-        .programs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 24px;
-            margin-bottom: 48px;
-        }
-
-        /* Card chương trình */
-        .program-card {
-            background: white;
-            border-radius: 32px;
-            overflow: hidden;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer;
-        }
-
-        .program-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .card-header {
-            padding: 20px 20px 16px;
-            text-align: center;
-            border-bottom: 3px solid #5bc0de;
-            background: linear-gradient(135deg, #f0fafd 0%, #ffffff 100%);
-        }
-
-        .card-header h2 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #1a6b8f;
-        }
-
-        .card-header .price {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #e87e2a;
-            margin-top: 8px;
-        }
-
-        .card-header .price small {
-            font-size: 0.9rem;
-            font-weight: normal;
-        }
-
-        .card-body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
         }
 
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px dashed #cce7f0;
-        }
-
-        .info-label {
-            font-weight: 700;
-            color: #1a6b8f;
-            font-size: 0.9rem;
-        }
-
-        .info-value {
-            color: #555;
-            font-weight: 500;
-            text-align: right;
-            font-size: 0.9rem;
-        }
-
-        .highlight {
-            background: #eef7fc;
-            padding: 12px;
-            border-radius: 16px;
-            margin: 12px 0;
-            font-size: 0.85rem;
-            color: #1a6b8f;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .condition-list {
-            margin-top: 16px;
-            padding-top: 12px;
-            border-top: 2px solid #cce7f0;
-        }
-
-        .condition-list p {
-            font-size: 0.8rem;
-            color: #5a7a8a;
-            margin: 6px 0;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .condition-list p::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #5bc0de;
-            font-weight: bold;
-        }
-
-        /* Form đăng ký */
-        .form-section {
+        .container {
             background: white;
-            border-radius: 40px;
-            padding: 32px 24px;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
+            border-radius: 20px;
+            box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+            overflow: hidden;
+            max-width: 700px;
+            width: 100%;
+            transition: all 0.3s ease;
         }
 
-        .form-section h3 {
-            font-size: 1.8rem;
-            color: #1a6b8f;
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #060154 100%);
+            color: white;
+            padding: 30px;
             text-align: center;
-            margin-bottom: 24px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .form-container {
+            padding: 30px;
         }
 
         .form-group {
-            margin-bottom: 18px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            color: #1a6b8f;
-            margin-bottom: 6px;
-        }
-
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #cce7f0;
-            border-radius: 28px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: border 0.2s;
-        }
-
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: #5bc0de;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .checkbox-group {
-            margin: 16px 0;
-            padding: 12px;
-            background: #f0fafd;
-            border-radius: 20px;
-        }
-
-        .checkbox-group label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: normal;
-            cursor: pointer;
-            color: #1a6b8f;
-        }
-
-        .checkbox-group input {
-            width: auto;
-            transform: scale(1.1);
-        }
-
-        .submit-btn {
-            width: 100%;
-            background: linear-gradient(105deg, #2c9bc8, #4fb3d9);
-            border: none;
-            padding: 16px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: white;
-            cursor: pointer;
-            margin-top: 16px;
-            transition: all 0.2s;
-        }
-
-        .submit-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 4px 12px rgba(44, 155, 200, 0.4);
-        }
-
-        .note {
-            font-size: 1rem;
-            color: #7a9eb0;
-            text-align: center;
-            margin-top: 16px;
-        }
-
-        /* Modal chọn chương trình */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1001;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 32px;
-            padding: 24px;
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
-        }
-
-        .modal-content h3 {
-            color: #1a6b8f;
             margin-bottom: 20px;
-            font-size: 1.4rem;
         }
 
-        .modal-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
         }
 
-        .modal-btn {
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+        }
+
+        input.error {
+            border-color: #f44336;
+        }
+
+        .error-message {
+            color: #f44336;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        button {
+            width: 100%;
             padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #060154 100%);
+            color: white;
             border: none;
-            border-radius: 50px;
-            font-size: 1rem;
+            border-radius: 10px;
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .modal-btn-primary {
-            background: linear-gradient(105deg, #2c9bc8, #4fb3d9);
-            color: white;
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
-        .modal-btn-secondary {
-            background: #eef7fc;
-            color: #1a6b8f;
-            border: 1px solid #cce7f0;
+        button:active {
+            transform: translateY(0);
         }
 
-        .modal-btn:hover {
-            transform: scale(1.02);
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
         }
 
-        /* Toast thông báo */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) scale(0.9);
-            background: rgba(26, 107, 143, 0.95);
-            color: white;
-            padding: 14px 28px;
-            border-radius: 60px;
-            font-size: 0.9rem;
-            z-index: 1000;
-            opacity: 0;
-            transition: 0.2s;
-            pointer-events: none;
+        .message {
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 10px;
+            display: none;
             text-align: center;
-            font-weight: 500;
+            font-size: 14px;
         }
 
-        .toast.show {
-            opacity: 1;
-            transform: translateX(-50%) scale(1);
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
         }
 
-        @media (max-width: 768px) {
-            /* Grid 3 cột */
-            .programs-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 24px;
-                margin-bottom: 48px;
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .info-note {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            color: #999;
+        }
+
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 20px;
             }
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 12px;
+            
+            .header {
+                padding: 20px;
             }
-            .card-header h2 {
-                font-size: 1.3rem;
-            }
+            
             .header h1 {
-                font-size: 1.4rem;
-            }
-            .toast {
-                white-space: normal;
-                max-width: 90%;
-                font-size: 0.8rem;
+                font-size: 24px;
             }
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <h1>NHA KHOA HUY DENTIST</h1>
-        <div class="slogan">
-            “Niềm vui là liều thuốc đầu tiên mà chúng tôi sử dụng trước khi kiến tạo nụ cười cho bạn”
-        </div>
-    </div>
-
-    <!-- 3 chương trình -->
-    <div class="programs-grid">
-        <!-- CT 1: LÀM SẠCH RĂNG MIỄN PHÍ -->
-        <div class="program-card">
-            <div class="card-header">
-                <h2>✨ LÀM SẠCH RĂNG ✨<br><span style="font-size:1rem;">MIỄN PHÍ</span></h2>
-                <div class="price">0đ</div>
+    <div class="container">
+        <div class="header">
+            <div style="width: 200px; height: 200px; margin: 0 auto 0px;">
+                <img src="./image/logo_1.png" alt="logo" style="width: 100%; height: 100%;">
             </div>
-            <div class="card-body">
-                <div class="info-row"><span class="info-label">📅 Số lượng/ngày</span><span class="info-value">Giới hạn 10 khách/ngày</span></div>
-                <div class="info-row"><span class="info-label">👥 Tổng số lượng</span><span class="info-value">30 khách / 3 ngày</span></div>
-                <div class="info-row"><span class="info-label">⏰ Thời gian</span><span class="info-value">3 ngày khai trương</span></div>
-                <div class="info-row"><span class="info-label">📝 Đăng ký</span><span class="info-value">Form hoặc check in trực tiếp</span></div>
-                <div class="highlight">🎁 Phiếu ưu tiên<br>Hoặc Voucher 50% răng sứ thẩm mỹ</div>
-                <div class="condition-list">
-                    <p>Đặt lịch qua form hoặc đến xếp hàng trước</p>
-                    <p>Mục tiêu: Tạo hiệu ứng xếp hàng</p>
+            <h1>ĐĂNG KÝ NHẬN NGAY ƯU ĐÃI <br> NHA KHOA HUY DENTIST</h1>
+            <div class="slogan">
+                “Niềm vui là liều thuốc đầu tiên mà chúng tôi sử dụng trước khi kiến tạo nụ cười cho bạn”
+            </div>
+            <h1></h1>
+            <p>Vui lòng điền đầy đủ thông tin bên dưới</p>
+        </div>
+        <div class="form-container">
+            <form id="customerForm">
+                <div class="form-group">
+                    <label for="fullname">Họ và tên *</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Nguyễn Văn A" required>
+                    <div class="error-message" id="nameError">Vui lòng nhập họ tên</div>
                 </div>
-            </div>
-        </div>
 
-        <!-- CT 2: TRÁM RĂNG MIỄN PHÍ -->
-        <div class="program-card">
-            <div class="card-header">
-                <h2>🦷 TRÁM RĂNG 🦷<br><span style="font-size:1rem;">MIỄN PHÍ</span></h2>
-                <div class="price">0đ / 1 răng</div>
-            </div>
-            <div class="card-body">
-                <div class="info-row"><span class="info-label">📅 Số lượng</span><span class="info-value">10 suất/ngày</span></div>
-                <div class="info-row"><span class="info-label">👥 Tổng số</span><span class="info-value">30 suất / 3 ngày</span></div>
-                <div class="info-row"><span class="info-label">✅ Điều kiện</span><span class="info-value">1 khách/1 răng</span></div>
-                <div class="info-row"><span class="info-label">🎁 Ưu đãi thêm</span><span class="info-value">Voucher 30% cho răng tiếp theo</span></div>
-                <div class="highlight">📱 Form hoặc check in trực tiếp</div>
-                <div class="condition-list">
-                    <p>Đặt lịch theo thứ tự đăng ký</p>
-                    <p>Mục tiêu: Thu hút khách hàng mới</p>
-                    <p>Không quy đổi tiền mặt / Không kết hợp chương trình khác</p>
+                <!-- <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                    <div class="error-message" id="emailError">Vui lòng nhập email hợp lệ</div>
+                </div> -->
+
+                <div class="form-group">
+                    <label for="phone">Số điện thoại *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="0912345678" required>
+                    <div class="error-message" id="phoneError">Vui lòng nhập số điện thoại hợp lệ (10 số)</div>
                 </div>
-            </div>
-        </div>
 
-        <!-- CT 3: LÀM TRẮNG RĂNG GIÁ 99K -->
-        <div class="program-card">
-            <div class="card-header">
-                <h2>🌟 LÀM TRẮNG RĂNG 🌟<br><span style="font-size:1rem;">CHỈ TỪ</span></h2>
-                <div class="price">99.000đ</div>
+                <button type="submit" id="submitBtn">Gửi thông tin</button>
+            </form>
+            <div class="message" id="message"></div>
+            <div class="info-note">
+                🔒 Thông tin của bạn được bảo mật tuyệt đối
             </div>
-            <div class="card-body">
-                <div class="info-row"><span class="info-label">📅 Số lượng/ngày</span><span class="info-value">3 suất/ngày</span></div>
-                <div class="info-row"><span class="info-label">👥 Tổng số</span><span class="info-value">9 suất / 3 ngày</span></div>
-                <div class="info-row"><span class="info-label">🎯 Điều kiện</span><span class="info-value">Form hoặc check in trực tiếp</span></div>
-                <div class="highlight">📱 Form hoặc check in trực tiếp</div>
-                <div class="condition-list">
-                    <p>✅ Đồng ý quay video feedback</p>
-                    <p>✅ Quay 01 Reel/TikTok</p>
-                    <p>✅ Phỏng vấn nhanh sau điều trị</p>
-                    <p>🎁 Tặng voucher 10% cho các dịch vụ khác</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- CT 4: LÀM TRẮNG RĂNG GIÁ 99K -->
-        <div class="program-card">
-            <div class="card-header">
-                <h2>🦷 TẶNG 1 RĂNG SỨ 🦷<br><span style="font-size:1rem;">MIỄN PHÍ</span></h2>
-                <div class="price">0đ</div>
-            </div>
-            <div class="card-body">
-                <div class="info-row"><span class="info-label">📅 Số lượng/ngày</span><span class="info-value">3 suất/ngày</span></div>
-                <div class="info-row"><span class="info-label">👥 Tổng số</span><span class="info-value">9 suất / 3 ngày</span></div>
-                <div class="info-row"><span class="info-label">🎯 Điều kiện</span><span class="info-value">Giới hạn 03 suất mỗi ngày  </span></div>
-                <div class="highlight">📹 Khách hàng thực hiện check-in hoặc đánh giá Google Maps để hoàn tất điều kiện nhận ưu đãi</div>
-                <div class="condition-list">
-                    <p>✅ Mỗi khách hàng chỉ được áp dụng tối đa 01 răng sứ miễn phí</p>
-                    <p>✅ Áp dụng trong thời gian diễn ra 03 ngày khai trương</p>
-                    <p>✅ Phỏng vấn nhanh sau điều trị</p>
-                    <p>🎁 Không áp dụng đồng thời với các chương trình ưu đãi khác </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- FORM ĐĂNG KÝ CHUNG -->
-    <div class="form-section" id="registerForm">
-        <form id="bookingForm">
-            <!-- Điều kiện bổ sung cho CT làm trắng răng -->
-            <div class="checkbox-group">
-                <label>
-                    <input type="checkbox" id="mediaConfirm"> Tôi đồng ý quay video trải nghiệm / Reels TikTok / phỏng vấn (bắt buộc với chương trình Làm trắng răng 99K)
-                </label>
-            </div>
-
-            <div class="checkbox-group">
-                <label>
-                    <input type="checkbox" id="terms" required> Tôi xác nhận đã đọc và đồng ý với điều kiện chương trình: Không quy đổi tiền mặt, không áp dụng cùng lúc với ưu đãi khác, mỗi khách chỉ áp dụng 1 răng/1 ngày.
-                </label>
-            </div>
-
-            <button type="button" class="submit-btn" id="submitBtn">ĐĂNG KÝ THAM GIA</button>
-            <div class="note">* Ưu tiên đặt lịch trước qua form. Số lượng có hạn, liên hệ sớm để nhận ưu đãi tốt nhất.</div>
-        </form>
-
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 48px; background: #ffffff; border-radius: 48px; padding: 48px 32px;">
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 48px; background: #ffffff; border-radius: 48px; padding: 48px 32px;">
             
             <!-- Facebook -->
-            <div style="text-align: center; min-width: 160px;">
+            <div style="text-align: center; min-width: 100px;">
                 <a href="https://www.facebook.com/Nhakhoahuydentist" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
                     <!-- SVG Icon Facebook -->
                     <div style="width: 48px; height: 48px; margin: 0 auto 12px;">
@@ -485,7 +216,7 @@
             </div>
 
             <!-- Email -->
-            <div style="text-align: center; min-width: 220px;">
+            <div style="text-align: center; min-width: 100px;">
                 <a href="https://www.tiktok.com/@huydentist.nk" style="text-decoration: none; color: inherit;">
                     <!-- SVG Icon Email -->
                     <div style="width: 48px; height: 48px; margin: 0 auto 12px;">
@@ -496,7 +227,7 @@
                 </a>
             </div>
 
-            <div style="text-align: center; min-width: 160px;">
+            <div style="text-align: center; min-width: 100px;">
                 <a href="https://zalo.me/0905243733" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
                     <div style="width: 48px; height: 48px; margin: 0 auto 12px;">
                         <img src="./image/zalo.svg" alt="Zalo" style="width: 100%; height: 100%;">
@@ -506,146 +237,126 @@
                 </a>
             </div>
         </div>
-    </div>
-
-</div>
-
-<!-- Modal chọn chương trình -->
-<div id="programModal" class="modal">
-    <div class="modal-content">
-        <h3>📋 Chọn chương trình bạn muốn đăng ký</h3>
-        <div class="modal-buttons">
-            <button class="modal-btn modal-btn-primary" data-program-value="LÀM SẠCH RĂNG MIỄN PHÍ">✨ Làm sạch răng miễn phí</button>
-            <button class="modal-btn modal-btn-primary" data-program-value="TRÁM RĂNG MIỄN PHÍ">🦷 Trám răng miễn phí 🦷</button>
-            <button class="modal-btn modal-btn-primary" data-program-value="LÀM TRẮNG RĂNG GIÁ 99K">🌟 Làm trắng răng giá 99K</button>
-            <button class="modal-btn modal-btn-primary" data-program-value="TẶNG 1 RĂNG SỨ">🦷 Tặng 1 răng sứ 🦷</button>
-            <button class="modal-btn modal-btn-secondary" id="closeModal">❌ Đóng</button>
         </div>
     </div>
-</div>
 
-<!-- Toast thông báo -->
-<div id="toast" class="toast"></div>
-
-<script>
-    // 🔧 CẤU HÌNH: THAY LINK FORM CỦA BẠN VÀO ĐÂY 🔧
-    const FORM_URL = "https://forms.gle/Wut5tCdeEJpq3GZc8";
-    
-    // Biến lưu chương trình đã chọn
-    let selectedProgram = null;
-    
-    // Lấy các phần tử DOM
-    const submitBtn = document.getElementById('submitBtn');
-    const modal = document.getElementById('programModal');
-    const mediaConfirm = document.getElementById('mediaConfirm');
-    const termsCheckbox = document.getElementById('terms');
-    const toast = document.getElementById('toast');
-    let toastTimeout = null;
-    
-    // Hàm hiển thị thông báo
-    function showToast(message, isError = false) {
-        toast.textContent = message;
-        toast.style.background = isError ? 'rgba(220, 53, 69, 0.95)' : 'rgba(26, 107, 143, 0.95)';
-        toast.classList.add('show');
-        if (toastTimeout) clearTimeout(toastTimeout);
-        toastTimeout = setTimeout(() => {
-            toast.classList.remove('show');
-        }, 3000);
-    }
-    
-    // Hàm chuyển hướng đến form
-    function redirectToForm(program) {
-        const redirectUrl = `${FORM_URL}?program=${encodeURIComponent(program)}&utm_source=website&utm_medium=register_button`;
-        window.location.href = redirectUrl;
-    }
-    
-    // Xử lý khi click nút đăng ký
-    submitBtn.addEventListener('click', function(e) {
-        e.preventDefault();
+    <script>
+        // === THAY URL NÀY BẰNG URL WEB APP CỦA BẠN ===
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwJdf-VYRAF44v9HTI0ocqJk30UkI5NwtJFcWJW0G_V5kkJytBnmka0S5e6BWz6DKhfaw/exec';
         
-        // Kiểm tra điều kiện chung
-        if (!termsCheckbox.checked) {
-            showToast('Vui lòng xác nhận đồng ý với điều kiện chương trình', true);
-            return;
+        const form = document.getElementById('customerForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const messageDiv = document.getElementById('message');
+        
+        // Hàm hiển thị thông báo
+        function showMessage(text, type) {
+            messageDiv.textContent = text;
+            messageDiv.className = `message ${type}`;
+            messageDiv.style.display = 'block';
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
         }
         
-        // Hiển thị modal chọn chương trình
-        modal.style.display = 'flex';
-    });
-    
-    // Xử lý khi chọn chương trình từ modal
-    const programButtons = document.querySelectorAll('.modal-btn-primary');
-    programButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            selectedProgram = this.getAttribute('data-program-value');
-            
-            // Kiểm tra điều kiện đặc biệt cho chương trình làm trắng răng 99K
-            if (selectedProgram === 'LÀM TRẮNG RĂNG GIÁ 99K') {
-                if (!mediaConfirm.checked) {
-                    showToast('⚠️ Chương trình Làm trắng răng 99K yêu cầu bạn đồng ý quay video trải nghiệm / Reels TikTok / phỏng vấn', true);
-                    return;
-                }
-            }
-            
-            // Đóng modal
-            modal.style.display = 'none';
-            
-            // Hiển thị thông báo đang chuyển hướng
-            showToast(`✅ Đang chuyển đến form đăng ký "${selectedProgram}"...`);
-            
-            // Chuyển hướng sau 0.5s để người dùng thấy thông báo
-            setTimeout(() => {
-                redirectToForm(selectedProgram);
-            }, 500);
-        });
-    });
-    
-    // Đóng modal khi click nút đóng
-    document.getElementById('closeModal').addEventListener('click', function() {
-        modal.style.display = 'none';
-    });
-    
-    // Đóng modal khi click ra ngoài
-    window.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            modal.style.display = 'none';
+        // Xóa lỗi hiển thị
+        function clearError(inputId, errorId) {
+            document.getElementById(inputId).classList.remove('error');
+            document.getElementById(errorId).style.display = 'none';
         }
-    });
-    
-    // Sự kiện click vào card chương trình (đăng ký nhanh)
-    const programCards = document.querySelectorAll('.program-card');
-    programCards.forEach(card => {
-        card.addEventListener('click', function(e) {
-            // Ngăn chặn sự kiện nếu click vào bên trong card
-            const programText = this.getAttribute('data-program');
-            
-            // Kiểm tra điều kiện chung
-            if (!termsCheckbox.checked) {
-                showToast('Vui lòng xác nhận đồng ý với điều kiện chương trình trước khi đăng ký', true);
-                return;
-            }
-            
-            // Kiểm tra điều kiện làm trắng răng
-            if (programText === 'LÀM TRẮNG RĂNG GIÁ 99K' && !mediaConfirm.checked) {
-                showToast('⚠️ Chương trình Làm trắng răng 99K yêu cầu bạn đồng ý quay video trải nghiệm', true);
-                return;
-            }
-            
-            // Hiển thị thông báo và chuyển hướng
-            showToast(`✅ Đang chuyển đến form đăng ký "${programText}"...`);
-            setTimeout(() => {
-                redirectToForm(programText);
-            }, 500);
-        });
-    });
-    
-    // Xử lý phím ESC để đóng modal
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.style.display === 'flex') {
-            modal.style.display = 'none';
+        
+        // Hiển thị lỗi
+        function showError(inputId, errorId) {
+            document.getElementById(inputId).classList.add('error');
+            document.getElementById(errorId).style.display = 'block';
         }
-    });
-</script>
-
+        
+        // Validate số điện thoại Việt Nam (10 số)
+        function validatePhone(phone) {
+            const phoneRegex = /^(0[3|5|7|8|9])+([0-9]{8})$/;
+            return phoneRegex.test(phone);
+        }
+        
+        // // Validate email
+        // function validateEmail(email) {
+        //     const emailRegex = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/;
+        //     return emailRegex.test(email);
+        // }
+        
+        // Xử lý khi submit form
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Lấy giá trị
+            const fullname = document.getElementById('fullname').value.trim();
+            // const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            
+            let isValid = true;
+            
+            // Validate tên
+            if (!fullname) {
+                showError('fullname', 'nameError');
+                isValid = false;
+            } else {
+                clearError('fullname', 'nameError');
+            }
+            
+            // // Validate email
+            // if (!email || !validateEmail(email)) {
+            //     showError('email', 'emailError');
+            //     isValid = false;
+            // } else {
+            //     clearError('email', 'emailError');
+            // }
+            
+            // Validate số điện thoại
+            if (!phone || !validatePhone(phone)) {
+                showError('phone', 'phoneError');
+                isValid = false;
+            } else {
+                clearError('phone', 'phoneError');
+            }
+            
+            if (!isValid) return;
+            
+            // Disable button và hiển thị loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Đang gửi...';
+            
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Quan trọng: Apps Script Web App hoạt động với no-cors
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        fullname: fullname,
+                        // email: email,
+                        phone: phone,
+                        timestamp: new Date().toLocaleString('vi-VN')
+                    })
+                });
+                
+                // Với mode no-cors, không thể đọc response, coi như thành công
+                showMessage('✅ Cảm ơn bạn! Thông tin đã được ghi nhận.', 'success');
+                form.reset();
+                
+                // Tùy chọn: Gửi thêm sang Telegram, Email, v.v (nếu muốn)
+                
+            } catch (error) {
+                console.error('Lỗi:', error);
+                showMessage('❌ Có lỗi xảy ra, vui lòng thử lại sau.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Gửi thông tin';
+            }
+        });
+        
+        // Real-time validation cho số điện thoại
+        document.getElementById('phone').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+        });
+    </script>
 </body>
 </html>
