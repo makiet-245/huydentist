@@ -30,6 +30,44 @@
             max-width: 700px;
             width: 100%;
             transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .lang-switch {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            z-index: 10;
+            display: flex;
+            gap: 4px;
+            background: rgba(255,255,255,0.25);
+            border-radius: 20px;
+            padding: 4px;
+            backdrop-filter: blur(4px);
+        }
+
+        .lang-btn {
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: auto;
+            min-width: 40px;
+        }
+
+        .lang-btn.active {
+            background: white;
+            color: #66a5c8;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .lang-btn:hover:not(.active) {
+            background: rgba(255,255,255,0.2);
         }
 
         .header {
@@ -37,6 +75,7 @@
             color: white;
             padding: 30px;
             text-align: center;
+            position: relative;
         }
 
         .header h1 {
@@ -47,6 +86,12 @@
         .header p {
             font-size: 14px;
             opacity: 0.9;
+        }
+
+        .slogan {
+            font-size: 14px;
+            opacity: 0.95;
+            margin: 8px 0;
         }
 
         .form-container {
@@ -92,7 +137,7 @@
             display: none;
         }
 
-        button {
+        button[type="submit"] {
             width: 100%;
             padding: 14px;
             background: linear-gradient(135deg, #e7bacf 0%, #00b9f2 100%);
@@ -105,16 +150,16 @@
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        button:hover {
+        button[type="submit"]:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
-        button:active {
+        button[type="submit"]:active {
             transform: translateY(0);
         }
 
-        button:disabled {
+        button[type="submit"]:disabled {
             opacity: 0.6;
             cursor: not-allowed;
         }
@@ -157,7 +202,17 @@
             }
             
             .header h1 {
-                font-size: 24px;
+                font-size: 22px;
+            }
+
+            .lang-switch {
+                top: 10px;
+                right: 10px;
+            }
+
+            .lang-btn {
+                font-size: 12px;
+                padding: 5px 10px;
             }
         }
     </style>
@@ -165,32 +220,29 @@
 <body>
     <div class="container">
         <div class="header">
+            <div class="lang-switch">
+                <button type="button" class="lang-btn active" data-lang="vi" id="btnVi">VI</button>
+                <button type="button" class="lang-btn" data-lang="en" id="btnEn">EN</button>
+            </div>
             <div style="width: 200px; height: 200px; margin: 0 auto 0px;">
                 <img src="./image/logo_1.png" alt="logo" style="width: 100%; height: 100%;">
             </div>
-            <h1>"EM XINH" QUÉT MÃ <br> NHẬN NGAY 1 SUẤT VỆ SINH RĂNG MIỄN PHÍ</h1>
-            <div class="slogan">
+            <h1 id="mainTitle">"EM XINH" QUÉT MÃ <br> NHẬN NGAY 1 SUẤT VỆ SINH RĂNG MIỄN PHÍ</h1>
+            <div class="slogan" id="slogan">
                 Chương trình áp dụng cho mọi đối tượng, không phân biệt giới tính
             </div>
-            <h1></h1>
-            <p>Vô vàn phần quà hấp dẫn cho các "em xinh" - đăng ký ngay tại đây</p>
+            <p id="subtitle">Vô vàn phần quà hấp dẫn cho các "em xinh" - đăng ký ngay tại đây</p>
         </div>
         <div class="form-container">
             <form id="customerForm">
                 <div class="form-group">
-                    <label for="fullname">Họ và tên *</label>
+                    <label for="fullname" id="labelName">Họ và tên *</label>
                     <input type="text" id="fullname" name="fullname" placeholder="Nguyễn Văn A" required>
                     <div class="error-message" id="nameError">Vui lòng nhập họ tên</div>
                 </div>
 
-                <!-- <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" placeholder="example@email.com" required>
-                    <div class="error-message" id="emailError">Vui lòng nhập email hợp lệ</div>
-                </div> -->
-
                 <div class="form-group">
-                    <label for="phone">Số điện thoại *(Zalo/whatsapp)</label>
+                    <label for="phone" id="labelPhone">Số điện thoại *(Zalo/whatsapp)</label>
                     <input type="tel" id="phone" name="phone" placeholder="0912345678" required>
                     <div class="error-message" id="phoneError">Vui lòng nhập số điện thoại hợp lệ (10 số)</div>
                 </div>
@@ -198,7 +250,7 @@
                 <button type="submit" id="submitBtn">Gửi thông tin</button>
             </form>
             <div class="message" id="message"></div>
-            <div class="info-note">
+            <div class="info-note" id="infoNote">
                 🔒 Thông tin của bạn được bảo mật tuyệt đối
             </div>
             <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 48px; background: #ffffff; border-radius: 48px; padding: 48px 32px;">
@@ -206,31 +258,28 @@
             <!-- Facebook -->
             <div style="text-align: center; min-width: 100px;">
                 <a href="https://www.facebook.com/Nhakhoahuydentist" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-                    <!-- SVG Icon Facebook -->
                     <div style="width: 48px; height: 48px; margin: 0 auto 12px;">
-                        <img src="./image/face.svg" alt="Zalo" style="width: 100%; height: 100%;">
+                        <img src="./image/face.svg" alt="Facebook" style="width: 100%; height: 100%;">
                     </div>
                     <p style="font-weight: 600; font-size: 1rem;">Nha Khoa Huy Dentist</p>
                     <p style="font-size: 0.85rem; color: #7A8A8F;">Facebook</p>
                 </a>
             </div>
 
-            <!-- Email -->
+            <!-- TikTok -->
             <div style="text-align: center; min-width: 100px;">
                 <a href="https://www.tiktok.com/@huydentist.nk" style="text-decoration: none; color: inherit;">
-                    <!-- SVG Icon Email -->
                     <div style="width: 48px; height: 48px; margin: 0 auto 12px;">
-                        <img src="./image/tiktok.svg" alt="Zalo" style="width: 100%; height: 100%;">
+                        <img src="./image/tiktok.svg" alt="TikTok" style="width: 100%; height: 100%;">
                     </div>
                     <p style="font-weight: 600; word-break: break-word;">Nha Khoa Huy Dentist</p>
                     <p style="font-size: 0.85rem; color: #7A8A8F;">Tiktok</p>
                 </a>
             </div>
 
-            <!-- Email -->
+            <!-- Google Map -->
             <div style="text-align: center; min-width: 100px;">
                 <a href="https://maps.app.goo.gl/CoQbdkJqmjmHkPje9" style="text-decoration: none; color: inherit;">
-                    <!-- SVG Icon Email -->
                     <div style="width: 48px; height: 48px; margin: 0 auto 12px;">
                         <img src="./image/ggmap.webp" alt="maps" style="width: 100%; height: 100%;">
                     </div>
@@ -259,8 +308,73 @@
         const form = document.getElementById('customerForm');
         const submitBtn = document.getElementById('submitBtn');
         const messageDiv = document.getElementById('message');
+
+        const translations = {
+            vi: {
+                mainTitle: '"EM XINH" QUÉT MÃ <br> NHẬN NGAY 1 SUẤT VỆ SINH RĂNG MIỄN PHÍ',
+                slogan: 'Chương trình áp dụng cho mọi đối tượng, không phân biệt giới tính',
+                subtitle: 'Vô vàn phần quà hấp dẫn cho các "em xinh" - đăng ký ngay tại đây',
+                labelName: 'Họ và tên *',
+                placeholderName: 'Nguyễn Văn A',
+                nameError: 'Vui lòng nhập họ tên',
+                labelPhone: 'Số điện thoại *(Zalo/whatsapp)',
+                placeholderPhone: '0912345678',
+                phoneError: 'Vui lòng nhập số điện thoại hợp lệ (10 số)',
+                submitBtn: 'Gửi thông tin',
+                submitting: 'Đang gửi...',
+                successMsg: '✅ Cảm ơn bạn! Thông tin đã được ghi nhận.',
+                errorMsg: '❌ Có lỗi xảy ra, vui lòng thử lại sau.',
+                infoNote: '🔒 Thông tin của bạn được bảo mật tuyệt đối'
+            },
+            en: {
+                mainTitle: '"PRETTY GIRLS" SCAN QR <br> GET 1 FREE TEETH CLEANING',
+                slogan: 'Program applies to everyone, no gender restriction',
+                subtitle: 'Tons of attractive gifts for "pretty girls" - register here now',
+                labelName: 'Full name *',
+                placeholderName: 'John Doe',
+                nameError: 'Please enter your full name',
+                labelPhone: 'Phone number *(Zalo/WhatsApp)',
+                placeholderPhone: '0912345678',
+                phoneError: 'Please enter a valid phone number (10 digits)',
+                submitBtn: 'Submit',
+                submitting: 'Sending...',
+                successMsg: '✅ Thank you! Your information has been recorded.',
+                errorMsg: '❌ An error occurred, please try again later.',
+                infoNote: '🔒 Your information is kept strictly confidential'
+            }
+        };
+
+        let currentLang = localStorage.getItem('lang') || 'vi';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+            document.documentElement.lang = lang;
+
+            const t = translations[lang];
+
+            document.getElementById('mainTitle').innerHTML = t.mainTitle;
+            document.getElementById('slogan').textContent = t.slogan;
+            document.getElementById('subtitle').textContent = t.subtitle;
+            document.getElementById('labelName').textContent = t.labelName;
+            document.getElementById('fullname').placeholder = t.placeholderName;
+            document.getElementById('nameError').textContent = t.nameError;
+            document.getElementById('labelPhone').textContent = t.labelPhone;
+            document.getElementById('phone').placeholder = t.placeholderPhone;
+            document.getElementById('phoneError').textContent = t.phoneError;
+            document.getElementById('submitBtn').textContent = t.submitBtn;
+            document.getElementById('infoNote').textContent = t.infoNote;
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+        }
+
+        document.getElementById('btnVi').addEventListener('click', () => setLanguage('vi'));
+        document.getElementById('btnEn').addEventListener('click', () => setLanguage('en'));
+
+        setLanguage(currentLang);
         
-        // Hàm hiển thị thông báo
         function showMessage(text, type) {
             messageDiv.textContent = text;
             messageDiv.className = `message ${type}`;
@@ -270,42 +384,30 @@
             }, 5000);
         }
         
-        // Xóa lỗi hiển thị
         function clearError(inputId, errorId) {
             document.getElementById(inputId).classList.remove('error');
             document.getElementById(errorId).style.display = 'none';
         }
         
-        // Hiển thị lỗi
         function showError(inputId, errorId) {
             document.getElementById(inputId).classList.add('error');
             document.getElementById(errorId).style.display = 'block';
         }
         
-        // Validate số điện thoại Việt Nam (10 số)
         function validatePhone(phone) {
             const phoneRegex = /^(0[3|5|7|8|9])+([0-9]{8})$/;
             return phoneRegex.test(phone);
         }
         
-        // // Validate email
-        // function validateEmail(email) {
-        //     const emailRegex = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/;
-        //     return emailRegex.test(email);
-        // }
-        
-        // Xử lý khi submit form
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            // Lấy giá trị
             const fullname = document.getElementById('fullname').value.trim();
-            // const email = document.getElementById('email').value.trim();
             const phone = document.getElementById('phone').value.trim();
+            const t = translations[currentLang];
             
             let isValid = true;
             
-            // Validate tên
             if (!fullname) {
                 showError('fullname', 'nameError');
                 isValid = false;
@@ -313,15 +415,6 @@
                 clearError('fullname', 'nameError');
             }
             
-            // // Validate email
-            // if (!email || !validateEmail(email)) {
-            //     showError('email', 'emailError');
-            //     isValid = false;
-            // } else {
-            //     clearError('email', 'emailError');
-            // }
-            
-            // Validate số điện thoại
             if (!phone || !validatePhone(phone)) {
                 showError('phone', 'phoneError');
                 isValid = false;
@@ -331,42 +424,36 @@
             
             if (!isValid) return;
             
-            // Disable button và hiển thị loading
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Đang gửi...';
+            submitBtn.textContent = t.submitting;
             
             try {
-                const response = await fetch(SCRIPT_URL, {
+                await fetch(SCRIPT_URL, {
                     method: 'POST',
-                    mode: 'no-cors', // Quan trọng: Apps Script Web App hoạt động với no-cors
+                    mode: 'no-cors',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
                         fullname: fullname,
-                        // email: email,
                         phone: phone,
                         timestamp: new Date().toLocaleString('vi-VN')
                     })
                 });
                 
-                // Với mode no-cors, không thể đọc response, coi như thành công
-                showMessage('✅ Cảm ơn bạn! Thông tin đã được ghi nhận.', 'success');
+                showMessage(t.successMsg, 'success');
                 form.reset();
-                
-                // Tùy chọn: Gửi thêm sang Telegram, Email, v.v (nếu muốn)
                 
             } catch (error) {
                 console.error('Lỗi:', error);
-                showMessage('❌ Có lỗi xảy ra, vui lòng thử lại sau.', 'error');
+                showMessage(t.errorMsg, 'error');
             } finally {
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Gửi thông tin';
+                submitBtn.textContent = t.submitBtn;
             }
         });
         
-        // Real-time validation cho số điện thoại
-        document.getElementById('phone').addEventListener('input', function(e) {
+        document.getElementById('phone').addEventListener('input', function() {
             this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
         });
     </script>
